@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Driver
+{
+public:
+    string name;
+    string source;
+    string destination;
+    int seats;
+};
+class Rider
+{
+public:
+    string name;
+    string source;
+    string destination;
+};
+int main ()
+{
+    Driver d;
+    Rider r;
+    cout << "Enter Driver Name: ";
+    getline(cin, d.name);
+    cout << "Enter Driver Source: ";
+    getline(cin, d.source);
+    cout << "Enter Driver Destination: ";
+    getline(cin, d.destination);
+    cout << "Enter Available Seats: ";
+    cin >> d.seats;
+    cin.ignore();
+    cout << "\nEnter Rider Name: ";
+    getline(cin, r.name);
+
+    cout << "Enter Rider Source: ";
+    getline(cin, r.source);
+    cout << "Enter Rider Destination: ";
+    getline(cin, r.destination);
+    if (d.source == r.source &&
+        d.destination == r.destination && d.seats > 0)
+    {
+        cout << "\nRide Matched Successfully!" << endl;
+        d.seats--;
+        cout << "\nDriver Name : " << d.name << endl;
+        cout << "Rider Name  : " << r.name << endl;
+        cout << "Route       : " << d.source
+             << " to " << d.destination << endl;
+        cout << "Remaining Seats : " << d.seats << endl;
+    }
+    else
+    {
+        cout << "\nNo Matching Ride Found!" << endl;
+    }
+
+    return 0;
+}
